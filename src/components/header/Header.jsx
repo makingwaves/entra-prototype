@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import logo from '../../media/entra-logo-white.svg';
 
-import './Header.scss';
+//Tabler
+import { Site } from 'tabler-react';
 
 class Header extends Component {
   render() {
     return (
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
+      <Site.Header className="App-header">
+        <Site.Logo src={logo} alt="logo" />
+      </Site.Header>
     );
   }
 }

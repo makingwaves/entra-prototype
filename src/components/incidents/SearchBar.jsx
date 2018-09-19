@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+//Tabler
+import { Form } from 'tabler-react';
+
 class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -10,16 +13,15 @@ class SearchBar extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
-      <form action="">
-        <input
-          type="text"
+      <Form.Group>
+        <Form.Input
+          icon="search"
           placeholder="Search..."
           value={this.props.searchText}
           onChange={this.handleSearchTextChange}
         />
-      </form>
+      </Form.Group>
     );
   }
 }

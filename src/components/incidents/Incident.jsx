@@ -8,7 +8,7 @@ class Incident extends Component {
     const { incident } = this.props;
 
     return (
-      <List.GroupItem className="incident" key={incident.sensorName}>
+      <List.GroupItem className="incident" key={incident.sensorName} action>
         <div>Sensor: {incident.sensorName}</div>
         <div>Category: {incident.sensorCategory}</div>
         <div>Building: {incident.building}</div>

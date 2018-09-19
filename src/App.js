@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 
 //Components
-import Header from './components/Header/Header';
+import Header from './components/header/Header';
+import Nav from './components/navigation/NavigationContainer';
 import FilterableIncidentList from './components/incidents/FilterableIncidentList';
-// import Incidents from "./components/incidents/Incidents";
+import CategoryList from './components/categories/CategoryList';
+import DetailsContainer from './components/details/DetailsContainer';
 
 //Tabler
-import { Grid } from 'tabler-react';
+import { Grid, Page } from 'tabler-react';
 
 //CSS
 import './App.scss';
@@ -15,12 +17,18 @@ import 'tabler-react/dist/Tabler.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <Page.Main className="App">
         <Header />
-        <Grid.Row>
-          <FilterableIncidentList />
-        </Grid.Row>
-      </div>
+        <Nav />
+        <Page.Content>
+          <Page.Title>Incidents</Page.Title>
+          <Grid.Row>
+            <CategoryList />
+            <FilterableIncidentList />
+            <DetailsContainer />
+          </Grid.Row>
+        </Page.Content>
+      </Page.Main>
     );
   }
 }

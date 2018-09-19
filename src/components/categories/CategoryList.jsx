@@ -1,38 +1,27 @@
 import React, { Component } from 'react';
 
-//Components
-import SearchBar from './SearchBar';
-import IncidentList from './IncidentList';
-
 //Tabler
-import { Grid, Header } from 'tabler-react';
+import { Grid, List, Header } from 'tabler-react';
 
-class FilterableIncidentList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchText: ''
-    };
-    this.handleSeachTextChange = this.handleSeachTextChange.bind(this);
-  }
-
-  handleSeachTextChange(searchText) {
-    this.setState({
-      searchText: searchText
-    });
-  }
-
+export default class CategoryList extends Component {
   render() {
+    console.log(...INCIDENTS);
     return (
-      <Grid.Col width={4}>
-        <SearchBar
-          searchText={this.state.searchText}
-          onSearchTextChange={this.handleSeachTextChange}
-        />
-        <IncidentList
-          incidents={INCIDENTS}
-          searchText={this.state.searchText}
-        />
+      <Grid.Col width={2}>
+        <List.Group transparent={true}>
+          <List.GroupItem action active icon="inbox">
+            All
+          </List.GroupItem>
+          <List.GroupItem action icon="alert-circle">
+            Confident
+          </List.GroupItem>
+          <List.GroupItem action icon="tag">
+            Vifter
+          </List.GroupItem>
+          <List.GroupItem action icon="tag">
+            Vendere
+          </List.GroupItem>
+        </List.Group>
       </Grid.Col>
     );
   }
@@ -75,5 +64,3 @@ const INCIDENTS = [
     confidence: '25'
   }
 ];
-
-export default FilterableIncidentList;
