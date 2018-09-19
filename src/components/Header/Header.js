@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import logo from "../../media/entra-logo-white.svg";
+import React, { Component } from 'react';
+import logo from '../../media/entra-logo-white.svg';
 
-import "./Header.scss";
+import './Header.scss';
 
 class Header extends Component {
   render() {
