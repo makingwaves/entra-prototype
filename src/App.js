@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 //Components
 import Header from './components/header/Header';
-import Nav from './components/navigation/NavigationContainer';
+import NavBar from './components/navigation/NavBar';
 import FilterableIncidentList from './components/incidents/FilterableIncidentList';
 import CategoryList from './components/categories/CategoryList';
 import DetailsContainer from './components/details/DetailsContainer';
@@ -19,7 +19,7 @@ export default class App extends Component {
     return (
       <Page.Main className="App">
         <Header />
-        <Nav />
+        <NavBar />
         <Page.Content>
           <Page.Title>Incidents</Page.Title>
           <Grid.Row>

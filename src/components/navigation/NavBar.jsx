@@ -7,10 +7,16 @@ export default class NavigationContainer extends Component {
   constructor() {
     super();
     this.handleClick = this.handleClick.bind(this);
+    this.state = { isActive: '' };
   }
 
   handleClick() {
-    console.log(this);
+    if (this.state.isActive === '') {
+      this.setState({ isActive: 'active' });
+    } else {
+      this.setState({ isActive: '' });
+    }
+    console.log(this.state);
   }
 
   render() {
@@ -30,3 +36,16 @@ export default class NavigationContainer extends Component {
     );
   }
 }
+
+const NAVITEMS = [
+  {
+    text: 'Dashboard',
+    icon: 'home',
+    url: ''
+  },
+  {
+    text: 'Incidents',
+    icon: 'list',
+    url: ''
+  }
+];
