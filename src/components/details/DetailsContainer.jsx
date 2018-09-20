@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 //Tabler
-import { Grid, Header } from 'tabler-react';
+import { Grid } from 'tabler-react';
 
 export default class DetailsContainer extends Component {
   render() {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 //Tabler
-import { Grid, List, Header } from 'tabler-react';
+import { Grid, List } from 'tabler-react';
 
 export default class CategoryList extends Component {
   render() {

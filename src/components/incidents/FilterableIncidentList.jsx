@@ -5,7 +5,7 @@ import SearchBar from './SearchBar';
 import IncidentList from './IncidentList';
 
 //Tabler
-import { Grid, Header } from 'tabler-react';
+import { Grid } from 'tabler-react';
 
 class FilterableIncidentList extends Component {
   constructor(props) {
