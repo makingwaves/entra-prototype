@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 //Tabler
 import { Form } from 'tabler-react';
 
-class SearchBar extends Component {
+export default class SearchBar extends Component {
   constructor(props) {
     super(props);
-    this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
+    this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
   }
-  handleSearchTextChange(e) {
-    this.props.onSearchTextChange(e.target.value);
+  handleSearchTermChange(e) {
+    this.props.onSearchTermChange(e.target.value);
   }
 
   render() {
@@ -18,12 +18,10 @@ class SearchBar extends Component {
         <Form.Input
           icon="search"
           placeholder="Search..."
-          value={this.props.searchText}
-          onChange={this.handleSearchTextChange}
+          value={this.props.searchTerm}
+          onChange={this.handleSearchTermChange}
         />
       </Form.Group>
     );
   }
 }
-
-export default SearchBar;

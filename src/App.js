@@ -14,7 +14,7 @@ import { Grid, Page } from 'tabler-react';
 import './App.scss';
 import 'tabler-react/dist/Tabler.css';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <Page.Main className="App">
@@ -32,5 +32,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

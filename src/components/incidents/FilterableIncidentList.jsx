@@ -7,18 +7,18 @@ import IncidentList from './IncidentList';
 //Tabler
 import { Grid } from 'tabler-react';
 
-class FilterableIncidentList extends Component {
+export default class FilterableIncidentList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchText: ''
+      searchTerm: ''
     };
-    this.handleSeachTextChange = this.handleSeachTextChange.bind(this);
+    this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
   }
 
-  handleSeachTextChange(searchText) {
+  handleSearchTermChange(searchTerm) {
     this.setState({
-      searchText: searchText
+      searchTerm: searchTerm
     });
   }
 
@@ -26,12 +26,12 @@ class FilterableIncidentList extends Component {
     return (
       <Grid.Col width={4}>
         <SearchBar
-          searchText={this.state.searchText}
-          onSearchTextChange={this.handleSeachTextChange}
+          searchTerm={this.state.searchTerm}
+          onSearchTermChange={this.handleSearchTermChange}
         />
         <IncidentList
           incidents={INCIDENTS}
-          searchText={this.state.searchText}
+          searchTerm={this.state.searchTerm}
         />
       </Grid.Col>
     );
@@ -75,5 +75,3 @@ const INCIDENTS = [
     confidence: '25'
   }
 ];
-
-export default FilterableIncidentList;

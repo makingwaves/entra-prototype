@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 //Tabler
 import { List } from 'tabler-react';
 
-class Incident extends Component {
+export default class Incident extends Component {
   render() {
     const { incident } = this.props;
 
@@ -18,5 +18,3 @@ class Incident extends Component {
     );
   }
 }
-
-export default Incident;

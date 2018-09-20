@@ -5,13 +5,13 @@ import Incident from './Incident';
 
 import { List } from 'tabler-react';
 
-class IncidentList extends Component {
+export default class IncidentList extends Component {
   render() {
-    const { incidents, searchText } = this.props;
+    const { incidents, searchTerm } = this.props;
 
     const incident = incidents.map(incident => {
       if (
-        incident.sensorName.toLowerCase().indexOf(searchText.toLowerCase()) ===
+        incident.sensorName.toLowerCase().indexOf(searchTerm.toLowerCase()) ===
         -1
       ) {
         return null;
@@ -21,5 +21,3 @@ class IncidentList extends Component {
     return <List.Group className="incident-list">{incident}</List.Group>;
   }
 }
-
-export default IncidentList;

@@ -4,7 +4,7 @@ import logo from '../../media/entra-logo-white.svg';
 //Tabler
 import { Site } from 'tabler-react';
 
-class Header extends Component {
+export default class Header extends Component {
   render() {
     return (
       <Site.Header className="App-header">
@@ -13,5 +13,3 @@ class Header extends Component {
     );
   }
 }
-
-export default Header;
