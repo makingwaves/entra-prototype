@@ -11,7 +11,7 @@ class Incident extends Component {
       <List.GroupItem className="incident" key={incident.sensorName} action>
         <div>Sensor: {incident.sensorName}</div>
         <div>Category: {incident.sensorCategory}</div>
-        <div>Building: {incident.building}</div>
+        <div>Building: {incident.sensorBuilding}</div>
         <div>Dato: {incident.date}</div>
         <div>Score: {incident.confidence}</div>
       </List.GroupItem>

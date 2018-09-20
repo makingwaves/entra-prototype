@@ -10,7 +10,10 @@ class IncidentList extends Component {
     const { incidents, searchText } = this.props;
 
     const incident = incidents.map(incident => {
-      if (incident.sensorName.indexOf(searchText) === -1) {
+      if (
+        incident.sensorName.toLowerCase().indexOf(searchText.toLowerCase()) ===
+        -1
+      ) {
         return null;
       }
       return <Incident incident={incident} key={incident.sensorName} />;

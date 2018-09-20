@@ -21,6 +21,18 @@ export default class CategoryList extends Component {
           <List.GroupItem action icon="tag">
             Vendere
           </List.GroupItem>
+          <List.GroupItem action icon="tag">
+            Pumper
+          </List.GroupItem>
+          <List.GroupItem action icon="tag">
+            Viftevakt
+          </List.GroupItem>
+          <List.GroupItem action icon="tag">
+            Varmekabel
+          </List.GroupItem>
+          <List.GroupItem action icon="tag">
+            Spjeld
+          </List.GroupItem>
         </List.Group>
       </Grid.Col>
     );
