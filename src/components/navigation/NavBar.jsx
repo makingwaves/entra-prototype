@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 //Tabler
 import { Nav, Container } from 'tabler-react';
 
 //Components
-import Incidents from './../incidents/Incidents';
-import Dashboard from './../dashboard/Dashboard';
 
 export default class NavBar extends Component {
   render() {
