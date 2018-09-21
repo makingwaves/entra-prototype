@@ -1,34 +1,24 @@
 import React, { Component } from 'react';
+import { Link, Route, Switch } from 'react-router-dom';
 
 //Tabler
 import { Nav, Container } from 'tabler-react';
 
-export default class NavigationContainer extends Component {
-  constructor() {
-    super();
-    this.handleClick = this.handleClick.bind(this);
-    this.state = { isActive: '' };
-  }
+//Components
+import Incidents from './../incidents/Incidents';
+import Dashboard from './../dashboard/Dashboard';
 
-  handleClick() {
-    if (this.state.isActive === '') {
-      this.setState({ isActive: 'active' });
-    } else {
-      this.setState({ isActive: '' });
-    }
-    console.log(this.state);
-  }
-
+export default class NavBar extends Component {
   render() {
     return (
       <div className="header d-lg-flex p-0 collapse">
         <Container>
           <Nav>
             <Nav.Item onClick={this.handleClick} icon="home">
-              Dashboard
+              <Link to="/">Dashboard</Link>
             </Nav.Item>
-            <Nav.Item onClick={this.handleClick} active icon="list">
-              Incidents
+            <Nav.Item onClick={this.handleClick} icon="list">
+              <Link to="/incidents">Incidents</Link>
             </Nav.Item>
           </Nav>
         </Container>
@@ -36,16 +26,3 @@ export default class NavigationContainer extends Component {
     );
   }
 }
-
-const NAVITEMS = [
-  {
-    text: 'Dashboard',
-    icon: 'home',
-    url: ''
-  },
-  {
-    text: 'Incidents',
-    icon: 'list',
-    url: ''
-  }
-];

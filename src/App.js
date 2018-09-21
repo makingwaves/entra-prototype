@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 //Components
 import Header from './components/header/Header';
 import NavBar from './components/navigation/NavBar';
-import FilterableIncidentList from './components/incidents/FilterableIncidentList';
-import CategoryList from './components/categories/CategoryList';
-import DetailsContainer from './components/details/DetailsContainer';
+import Incidents from './components/incidents/Incidents';
+import Dashboard from './components/dashboard/Dashboard';
 
 //Tabler
-import { Grid, Page } from 'tabler-react';
+import { Page } from 'tabler-react';
 
 //CSS
 import './App.scss';
@@ -17,18 +17,16 @@ import 'tabler-react/dist/Tabler.css';
 export default class App extends Component {
   render() {
     return (
-      <Page.Main className="App">
-        <Header />
-        <NavBar />
-        <Page.Content>
-          <Page.Title>Incidents</Page.Title>
-          <Grid.Row>
-            <CategoryList />
-            <FilterableIncidentList />
-            <DetailsContainer />
-          </Grid.Row>
-        </Page.Content>
-      </Page.Main>
+      <BrowserRouter>
+        <Page.Main className="App">
+          <Header />
+          <NavBar />
+          <Switch>
+            <Route exact path="/" component={Dashboard} />
+            <Route path="/incidents" component={Incidents} />
+          </Switch>
+        </Page.Main>
+      </BrowserRouter>
     );
   }
 }
