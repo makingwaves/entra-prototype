@@ -9,10 +9,10 @@ export default class CategoryList extends Component {
       <Grid.Col width={2}>
         <List.Group transparent={true}>
           <List.GroupItem action active icon="inbox">
-            All
+            Alle
           </List.GroupItem>
           <List.GroupItem action icon="alert-circle">
-            Confident
+            Sikker
           </List.GroupItem>
           <List.GroupItem action icon="tag">
             Vifter

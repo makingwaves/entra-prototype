@@ -18,7 +18,7 @@ export default class FilterableIncidentList extends Component {
 
   handleSearchTermChange(searchTerm) {
     this.setState({
-      searchTerm: searchTerm
+      searchTerm
     });
   }
 

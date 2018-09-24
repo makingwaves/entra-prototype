@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 //Tabler
 import { Nav, Container } from 'tabler-react';
@@ -13,10 +13,10 @@ export default class NavBar extends Component {
         <Container>
           <Nav>
             <Nav.Item onClick={this.handleClick} icon="home">
-              <NavLink to="/">Dashboard</NavLink>
+              <NavLink to="/">Dashbord</NavLink>
             </Nav.Item>
             <Nav.Item onClick={this.handleClick} icon="list">
-              <NavLink to="/incidents">Incidents</NavLink>
+              <NavLink to="/incidents">Hendelser</NavLink>
             </Nav.Item>
           </Nav>
         </Container>

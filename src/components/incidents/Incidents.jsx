@@ -12,7 +12,7 @@ export default class Incidents extends Component {
   render() {
     return (
       <Page.Content>
-        <Page.Title>Incidents</Page.Title>
+        <Page.Title>Hendelser</Page.Title>
         <Grid.Row>
           <CategoryList />
           <FilterableIncidentList />

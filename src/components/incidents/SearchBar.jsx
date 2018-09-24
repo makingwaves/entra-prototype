@@ -17,7 +17,7 @@ export default class SearchBar extends Component {
       <Form.Group>
         <Form.Input
           icon="search"
-          placeholder="Search..."
+          placeholder="Søk..."
           value={this.props.searchTerm}
           onChange={this.handleSearchTermChange}
         />
