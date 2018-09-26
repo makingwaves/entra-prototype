@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes, { string, func } from 'prop-types';
+import { string, func } from 'prop-types';
 import { Form } from 'tabler-react';
 
 const propTypes = {
