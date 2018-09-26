@@ -1,33 +1,54 @@
 import React, { Component } from 'react';
+import { objectOf, string } from 'prop-types';
 import { List } from 'tabler-react';
+
+const propTypes = {
+  incident: objectOf(string),
+};
+
+const defaultProps = {
+  incident: {
+    sensorName: '',
+    sensorCategory: '',
+    sensorBuilding: '',
+    date: '',
+    confidence: '',
+  },
+};
 
 export default class Incident extends Component {
   render() {
     const { incident } = this.props;
+    const {
+      sensorName, sensorCategory, sensorBuilding, date, confidence,
+    } = incident;
 
     return (
-      <List.GroupItem className="incident" key={incident.sensorName} action>
+      <List.GroupItem className="incident" key={sensorName} action>
         <div>
           Sensor:
-          {incident.sensorName}
+          {sensorName}
         </div>
         <div>
           Kategori:
-          {incident.sensorCategory}
+          {sensorCategory}
         </div>
         <div>
           Bygg:
-          {incident.sensorBuilding}
+          {sensorBuilding}
         </div>
         <div>
           Dato:
-          {incident.date}
+          {date}
         </div>
         <div>
           Poengsum:
-          {incident.confidence}
+          {confidence}
         </div>
       </List.GroupItem>
     );
   }
 }
+
+Incident.propTypes = propTypes;
+Incident.defaultProps = defaultProps;

@@ -38,60 +38,60 @@ export default class Chart extends Component {
   }
 }
 
-const data = [
-  {
-    sensor: 'JV400-1',
-    key: '1519538400001',
-    category: 'vifter',
-    building: 'Grenseveien 26',
-    startDate: '2018-02-24 02:00:00',
-    maxValue: 630,
-    maxScore: 100,
-    coordinates: [
-      {
-        date: '2018-02-25 10:00:00',
-        value: 500,
-        score: 75,
-      },
-      {
-        date: '2018-02-25 10:00:00',
-        value: 500,
-        score: 75,
-      },
-      {
-        date: '2018-02-25 10:00:00',
-        value: 500,
-        score: 75,
-      },
-    ],
-  },
-  {
-    sensor: 'JV400-2',
-    key: '1519538400002',
-    category: 'vifter',
-    building: 'Grenseveien 26',
-    startDate: '2018-02-24 02:00:00',
-    maxValue: 630,
-    maxScore: 100,
-    coordinates: [
-      {
-        date: '2018-02-25 10:00:00',
-        value: 500,
-        score: 75,
-      },
-      {
-        date: '2018-02-25 10:00:00',
-        value: 500,
-        score: 75,
-      },
-      {
-        date: '2018-02-25 10:00:00',
-        value: 500,
-        score: 75,
-      },
-    ],
-  },
-];
+// const data = [
+//   {
+//     sensor: 'JV400-1',
+//     key: '1519538400001',
+//     category: 'vifter',
+//     building: 'Grenseveien 26',
+//     startDate: '2018-02-24 02:00:00',
+//     maxValue: 630,
+//     maxScore: 100,
+//     coordinates: [
+//       {
+//         date: '2018-02-25 10:00:00',
+//         value: 500,
+//         score: 75,
+//       },
+//       {
+//         date: '2018-02-25 10:00:00',
+//         value: 500,
+//         score: 75,
+//       },
+//       {
+//         date: '2018-02-25 10:00:00',
+//         value: 500,
+//         score: 75,
+//       },
+//     ],
+//   },
+//   {
+//     sensor: 'JV400-2',
+//     key: '1519538400002',
+//     category: 'vifter',
+//     building: 'Grenseveien 26',
+//     startDate: '2018-02-24 02:00:00',
+//     maxValue: 630,
+//     maxScore: 100,
+//     coordinates: [
+//       {
+//         date: '2018-02-25 10:00:00',
+//         value: 500,
+//         score: 75,
+//       },
+//       {
+//         date: '2018-02-25 10:00:00',
+//         value: 500,
+//         score: 75,
+//       },
+//       {
+//         date: '2018-02-25 10:00:00',
+//         value: 500,
+//         score: 75,
+//       },
+//     ],
+//   },
+// ];
 
 const movies = [
   {
