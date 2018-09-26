@@ -7,11 +7,26 @@ export default class Incident extends Component {
 
     return (
       <List.GroupItem className="incident" key={incident.sensorName} action>
-        <div>Sensor: {incident.sensorName}</div>
-        <div>Kategori: {incident.sensorCategory}</div>
-        <div>Bygg: {incident.sensorBuilding}</div>
-        <div>Dato: {incident.date}</div>
-        <div>Poengsum: {incident.confidence}</div>
+        <div>
+          Sensor:
+          {incident.sensorName}
+        </div>
+        <div>
+          Kategori:
+          {incident.sensorCategory}
+        </div>
+        <div>
+          Bygg:
+          {incident.sensorBuilding}
+        </div>
+        <div>
+          Dato:
+          {incident.date}
+        </div>
+        <div>
+          Poengsum:
+          {incident.confidence}
+        </div>
       </List.GroupItem>
     );
   }

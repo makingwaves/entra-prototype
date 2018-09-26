@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { Site } from 'tabler-react';
 import logo from '../../media/entra-logo-white.svg';
 
-//Tabler
-import { Site } from 'tabler-react';
+// Tabler
 
 export default class Header extends Component {
   render() {

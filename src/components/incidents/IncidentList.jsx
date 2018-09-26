@@ -8,7 +8,7 @@ export default class IncidentList extends Component {
   render() {
     const { incidents, searchTerm } = this.props;
 
-    const incident = incidents.map(incident => {
+    const incident = incidents.map((incident) => {
       if (incident.sensorName.toLowerCase().indexOf(searchTerm.toLowerCase()) === -1) {
         return null;
       }

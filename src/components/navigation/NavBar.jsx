@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Nav, Container } from 'tabler-react';
 
-// Components
-
 export default class NavBar extends Component {
   render() {
     return (
@@ -14,7 +12,7 @@ export default class NavBar extends Component {
               <NavLink to="/">Dashbord</NavLink>
             </Nav.Item>
             <Nav.Item onClick={this.handleClick} icon="list">
-              <NavLink to="/incidents" >Hendelser</NavLink>
+              <NavLink to="/incidents">Hendelser</NavLink>
             </Nav.Item>
           </Nav>
         </Container>

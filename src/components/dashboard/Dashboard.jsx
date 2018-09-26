@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Form, Grid, Page, Card } from 'tabler-react';
+import {
+  Form, Grid, Page, Card,
+} from 'tabler-react';
 
 export default class Dashboard extends Component {
   render() {
