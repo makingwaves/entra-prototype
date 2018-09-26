@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-
-//Tabler
 import { Grid, Page } from 'tabler-react';
 
-//Components
+// Components
 import FilterableIncidentList from './FilterableIncidentList';
 import CategoryList from './CategoryList';
-import DetailsContainer from './../details/DetailsContainer';
+import DetailsContainer from '../details/DetailsContainer';
 
 export default class Incidents extends Component {
   render() {

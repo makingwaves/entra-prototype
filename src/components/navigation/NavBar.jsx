@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-
-//Tabler
 import { Nav, Container } from 'tabler-react';
 
-//Components
+// Components
 
 export default class NavBar extends Component {
   render() {
@@ -16,7 +14,7 @@ export default class NavBar extends Component {
               <NavLink to="/">Dashbord</NavLink>
             </Nav.Item>
             <Nav.Item onClick={this.handleClick} icon="list">
-              <NavLink to="/incidents">Hendelser</NavLink>
+              <NavLink to="/incidents" >Hendelser</NavLink>
             </Nav.Item>
           </Nav>
         </Container>

@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-
-//Tabler
 import { Grid, List } from 'tabler-react';
 
 export default class CategoryList extends Component {
   render() {
     return (
       <Grid.Col width={2}>
-        <List.Group transparent={true}>
+        <List.Group transparent>
           <List.GroupItem action active icon="inbox">
             Alle
           </List.GroupItem>

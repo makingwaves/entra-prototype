@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-//Tabler
 import { Form } from 'tabler-react';
 
 export default class SearchBar extends Component {
@@ -8,6 +6,7 @@ export default class SearchBar extends Component {
     super(props);
     this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
   }
+
   handleSearchTermChange(e) {
     this.props.onSearchTermChange(e.target.value);
   }

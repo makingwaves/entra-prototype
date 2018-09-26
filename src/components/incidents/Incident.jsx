@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-//Tabler
 import { List } from 'tabler-react';
 
 export default class Incident extends Component {
