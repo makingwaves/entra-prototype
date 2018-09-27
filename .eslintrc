@@ -1,7 +1,15 @@
 {
-  "extends": ["airbnb", "react-app"],
+  "extends": [
+    "airbnb",
+    "react-app"
+  ],
   "parser": "babel-eslint",
-  "plugins": ["react", "jsx-a11y", "import", "prettier"],
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import",
+    "prettier"
+  ],
   "rules": {
     "jsx-a11y/href-no-hash": 0,
     "jsx-a11y/label-has-associated-control": 0,
