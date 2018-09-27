@@ -1,7 +1,6 @@
 {
   "extends": [
-    "airbnb",
-    "react-app"
+    "airbnb"
   ],
   "parser": "babel-eslint",
   "plugins": [
