@@ -13,15 +13,10 @@ const defaultProps = {
 };
 
 export default class SearchBar extends Component {
-  constructor(props) {
-    super(props);
-    this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
-  }
-
-  handleSearchTermChange(e) {
+  handleSearchTermChange = (e) => {
     const { onSearchTermChange } = this.props;
     onSearchTermChange(e.target.value);
-  }
+  };
 
   render() {
     const { searchTerm } = this.props;

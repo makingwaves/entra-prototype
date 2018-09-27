@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Page } from 'tabler-react';
 
-//Components
+// Components
 import Header from './components/header/Header';
 import NavBar from './components/navigation/NavBar';
 import Incidents from './components/incidents/Incidents';
 import Dashboard from './components/dashboard/Dashboard';
 
-//Tabler
-import { Page } from 'tabler-react';
-
-//CSS
+// CSS
 import './App.scss';
 import 'tabler-react/dist/Tabler.css';
 
