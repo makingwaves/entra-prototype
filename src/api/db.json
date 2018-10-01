@@ -1,5 +1,46 @@
 {
-  "unit_id": "27234",
+  "incidents": [
+    {
+      "id": 1,
+      "sensorName": "JV400-1",
+      "sensorCategory": "Vifter",
+      "sensorBuilding": "Grenseveien 26",
+      "date": "01.01.2000",
+      "confidence": "85"
+    },
+    {
+      "id": 2,
+      "sensorName": "JV400-2",
+      "sensorCategory": "Vifter",
+      "sensorBuilding": "Grenseveien 26",
+      "date": "02.02.2001",
+      "confidence": "97"
+    },
+    {
+      "id": 3,
+      "sensorName": "JV400-3",
+      "sensorCategory": "Vifter",
+      "sensorBuilding": "Grenseveien 26",
+      "date": "03.04.2004",
+      "confidence": "65"
+    },
+    {
+      "id": 4,
+      "sensorName": "JV400-4",
+      "sensorCategory": "Vifter",
+      "sensorBuilding": "Grenseveien 26",
+      "date": "04.04.2006",
+      "confidence": "25"
+    },
+    {
+      "id": 5,
+      "sensorName": "ZX200-1",
+      "sensorCategory": "Vender",
+      "sensorBuilding": "Grenseveien 26",
+      "date": "04.04.2006",
+      "confidence": "25"
+    }
+  ],
   "coordinates": [
     {
       "date": 1535760000000,

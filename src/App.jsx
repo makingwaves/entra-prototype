@@ -5,7 +5,7 @@ import { Page } from 'tabler-react';
 // Components
 import Header from './components/header/Header';
 import NavBar from './components/navigation/NavBar';
-import Incidents from './components/incidents/Incidents';
+import Incidents from './components/incidents/IncidentsContainer';
 import Dashboard from './components/dashboard/Dashboard';
 
 // CSS
