@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { arrayOf, object, string } from 'prop-types';
+import {
+  arrayOf, object, func, string,
+} from 'prop-types';
 import { List } from 'tabler-react';
 // Components
 import Incident from './Incident';
@@ -7,11 +9,13 @@ import Incident from './Incident';
 const propTypes = {
   incidents: arrayOf(object),
   searchTerm: string,
+  onClickHandler: func,
 };
 
 const defaultProps = {
-  incidents: [],
+  incidents: null,
   searchTerm: '',
+  onClickHandler: null,
 };
 
 export default class IncidentList extends Component {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Axios from 'axios';
 import { Grid, Page } from 'tabler-react';
 
@@ -23,11 +24,13 @@ componentDidMount = () => {
 onClickHandler = (e, id = "du må legge inn id i incidents") => {
   e.preventDefault();
   // console.log(this);
-  console.log('martin', id);
+  console.log('log onClickHandler IncidentsContainer', id);
 }
 
 render() {
   const { incidents } = this.state;
+  console.log('inc container - state', incidents);
+
 
   return (
     <Page.Content>
@@ -35,7 +38,9 @@ render() {
       <Grid.Row>
         <CategoryList />
         <FilterableIncidentList onClickHandler={this.onClickHandler} incidents={incidents} />
-        <DetailsContainer path="/incidents/incident_id" incidents={incidents} onClick={this.onClickHandler} />
+        <BrowserRouter>
+          <Route path="/:incident_id" incidents={incidents} onClick={this.onClickHandler} component={DetailsContainer} />
+        </BrowserRouter>
       </Grid.Row>
     </Page.Content>
   );
