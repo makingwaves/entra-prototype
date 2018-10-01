@@ -6,6 +6,10 @@ import Axios from 'axios';
 import Details from './Details';
 
 export default class DetailsContainer extends Component {
+  constructor(props) {
+    super(props);
+    //this.state = props;
+  }
   // static propTypes = {
   //   incident: objectOf(any),
   // };
@@ -20,24 +24,17 @@ export default class DetailsContainer extends Component {
 
 
   componentDidMount = () => {
-    console.log('details', this.props);
-    // const id = this.props.match.params.incident_id;
-    // Axios.get(`http://localhost:5000/incidents/${id}`).then((res) => {
-    //   this.setState({
-    //     incident: res.data,
-    //   });
+    console.log('details', this.props.data);
+    // Axios.get('http://entraml.northeurope.cloudapp.azure.com:8080/linechart?from=2017-10-01&to=2017-10-02&unit_id=27244').then((res) => {
+    //   console.log('api', res.data);
     // });
-
-    Axios.get('http://entraml.northeurope.cloudapp.azure.com:8080/linechart?from=2017-10-01&to=2017-10-02&unit_id=27244').then((res) => {
-      console.log('api', res.data);
-    });
   };
 
   render() {
-    const incident = this.state ? (
+    const incident = this.props.data ? (
       <div className="indident-detail">
         <Card.Header>
-          <Card.Title>Sensor Name</Card.Title>
+          <Card.Title>{this.props.data.sensorName}</Card.Title>
         </Card.Header>
         <Card.Body>
           <Details />

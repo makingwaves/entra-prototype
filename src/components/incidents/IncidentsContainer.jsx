@@ -11,6 +11,7 @@ import DetailsContainer from '../details/DetailsContainer';
 export default class IncidentsContainer extends Component {
   state = {
     incidents: [],
+    id: null
   };
 
 componentDidMount = () => {
@@ -25,11 +26,16 @@ onClickHandler = (e, id = "du må legge inn id i incidents") => {
   e.preventDefault();
   // console.log(this);
   console.log('log onClickHandler IncidentsContainer', id);
+    Axios.get(`http://localhost:5000/incidents/${id}`).then((res) => {
+    this.setState({
+      data: res.data,
+    });
+  });
 }
 
 render() {
   const { incidents } = this.state;
-  console.log('inc container - state', incidents);
+  console.log('log in render, IncidentsContainer', this.state.data);
 
 
   return (
@@ -38,9 +44,9 @@ render() {
       <Grid.Row>
         <CategoryList />
         <FilterableIncidentList onClickHandler={this.onClickHandler} incidents={incidents} />
-        <BrowserRouter>
-          <Route path="/:incident_id" incidents={incidents} onClick={this.onClickHandler} component={DetailsContainer} />
-        </BrowserRouter>
+        
+        <DetailsContainer data={this.state.data} />
+        
       </Grid.Row>
     </Page.Content>
   );
