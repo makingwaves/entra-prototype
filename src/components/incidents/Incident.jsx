@@ -18,33 +18,35 @@ const defaultProps = {
 
 export default class Incident extends Component {
   render() {
-    const { incident } = this.props;
+    const { incident, onClickHandler } = this.props;
     const {
-      sensorName, sensorCategory, sensorBuilding, date, confidence,
+      id, sensorName, sensorCategory, sensorBuilding, date, confidence,
     } = incident;
 
     return (
       <List.GroupItem className="incident" key={sensorName} action>
-        <div>
-          Sensor:
-          {sensorName}
-        </div>
-        <div>
-          Kategori:
-          {sensorCategory}
-        </div>
-        <div>
-          Bygg:
-          {sensorBuilding}
-        </div>
-        <div>
-          Dato:
-          {date}
-        </div>
-        <div>
-          Poengsum:
-          {confidence}
-        </div>
+        <a onClick={(e) => onClickHandler(e, id)}>
+          <div>
+            Sensor:
+            {sensorName}
+          </div>
+          <div>
+            Kategori:
+            {sensorCategory}
+          </div>
+          <div>
+            Bygg:
+            {sensorBuilding}
+          </div>
+          <div>
+            Dato:
+            {date}
+          </div>
+          <div>
+            Poengsum:
+            {confidence}
+          </div>
+        </a>
       </List.GroupItem>
     );
   }

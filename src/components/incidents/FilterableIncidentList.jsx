@@ -25,7 +25,7 @@ export default class FilterableIncidentList extends Component {
     return (
       <Grid.Col width={4}>
         <SearchBar searchTerm={searchTerm} onSearchTermChange={this.handleSearchTermChange} />
-        <IncidentList incidents={INCIDENTS} searchTerm={searchTerm} />
+        <IncidentList incidents={INCIDENTS} searchTerm={searchTerm} onClickHandler={this.props.onClickHandler} />
       </Grid.Col>
     );
   }

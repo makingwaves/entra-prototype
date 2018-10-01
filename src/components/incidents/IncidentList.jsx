@@ -16,13 +16,13 @@ const defaultProps = {
 
 export default class IncidentList extends Component {
   render() {
-    const { incidents, searchTerm } = this.props;
+    const { incidents, searchTerm, onClickHandler } = this.props;
 
     const incident = incidents.map((i) => {
       if (i.sensorName.toLowerCase().indexOf(searchTerm.toLowerCase()) === -1) {
         return null;
       }
-      return <Incident incident={i} key={i.sensorName} />;
+      return <Incident incident={i} key={i.sensorName} onClickHandler={onClickHandler} />;
     });
     return <List.Group className="incident-list">{incident}</List.Group>;
   }

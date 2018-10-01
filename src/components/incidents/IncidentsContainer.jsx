@@ -20,9 +20,10 @@ componentDidMount = () => {
   });
 }
 
-onClickHandler = () => {
-  console.log(this);
-  console.log('martin');
+onClickHandler = (e, id = "du må legge inn id i incidents") => {
+  e.preventDefault();
+  // console.log(this);
+  console.log('martin', id);
 }
 
 render() {
