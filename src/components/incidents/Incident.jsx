@@ -1,48 +1,53 @@
 import React, { Component } from 'react';
-import { objectOf, string } from 'prop-types';
+import {
+  objectOf, func, any,
+} from 'prop-types';
 import { List } from 'tabler-react';
 
 const propTypes = {
-  incident: objectOf(string),
+  incident: objectOf(any),
+  onClickHandler: func,
 };
 
 const defaultProps = {
   incident: {
+    id: null,
     sensorName: '',
     sensorCategory: '',
     sensorBuilding: '',
     date: '',
     confidence: '',
   },
+  onClickHandler: null,
 };
 
 export default class Incident extends Component {
   render() {
-    const { incident } = this.props;
+    const { incident, onClickHandler } = this.props;
     const {
-      sensorName, sensorCategory, sensorBuilding, date, confidence,
+      id, sensorName, sensorCategory, sensorBuilding, date, confidence,
     } = incident;
 
     return (
-      <List.GroupItem className="incident" key={sensorName} action>
+      <List.GroupItem className="incident" key={id} onClick={onClickHandler} action>
         <div>
           Sensor:
           {sensorName}
         </div>
         <div>
-          Kategori:
+            Kategori:
           {sensorCategory}
         </div>
         <div>
-          Bygg:
+            Bygg:
           {sensorBuilding}
         </div>
         <div>
-          Dato:
+            Dato:
           {date}
         </div>
         <div>
-          Poengsum:
+            Poengsum:
           {confidence}
         </div>
       </List.GroupItem>
