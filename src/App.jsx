@@ -13,11 +13,21 @@ import Dashboard from './components/dashboard/Dashboard';
 import './App.scss';
 import 'tabler-react/dist/Tabler.css';
 
+ import { url } from './constants/apiConstants';
+
 export default class App extends Component {
   componentDidMount = () => {
-    Axios.get('http://entraml.northeurope.cloudapp.azure.com/api/linechart?from=2017-10-01&to=2017-10-02&unit_id=27244').then((res) => {
-      console.log('ext api res', res);
-    });
+    // Axios.get('http://entraml.northeurope.cloudapp.azure.com/api/linechart?from=2017-10-01&to=2017-10-02&unit_id=27244').then((res) => {
+    //   console.log('ext api res', res);
+    // });
+      const testUrl = `${url}/linechart?from=2017-10-01&to=2017-10-02&unit_id=27244`;
+      console.log('log testUrl', testUrl);
+
+      Axios.get(`${url}/linechart?from=2017-10-01&to=2017-10-02&unit_id=27244`).then((res) => {
+        console.log('ext api res', res);
+      });
+
+    console.log('log url from apiConstants', url);
   }
 
   render() {
