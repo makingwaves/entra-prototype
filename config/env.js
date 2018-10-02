@@ -7,10 +7,13 @@ const paths = require('./paths');
 // Make sure that including paths.js after env.js will read .env variables.
 delete require.cache[require.resolve('./paths')];
 
-process.env.BABEL_ENV = 'development';
-process.env.NODE_ENV = 'development';
+// console.log('log env before everything', process.env.NODE_ENV);
+
+// process.env.BABEL_ENV = 'development';
+// process.env.NODE_ENV = 'development';
 
 const NODE_ENV = process.env.NODE_ENV;
+// console.log('log node_env in env.js', process.env.NODE_ENV);
 if (!NODE_ENV) {
   throw new Error(
     'The NODE_ENV environment variable is required but was not specified.'

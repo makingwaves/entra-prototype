@@ -13,7 +13,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import './App.scss';
 import 'tabler-react/dist/Tabler.css';
 
- import { url } from './constants/apiConstants';
+import { url } from './constants/apiConstants';
 
 export default class App extends Component {
   componentDidMount = () => {

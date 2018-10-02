@@ -5,12 +5,11 @@ const API_ROOT = '/api';
 
 const api_url = function() {
  let api_url = '';
+ console.log('log node env in apiconstants', process.env.NODE_ENV);
  if(process.env.NODE_ENV == 'development'){
-   // api_url = ‘https://development/api/v0’;
    api_url = LOCALHOST + API_ROOT;
  }
  else if(process.env.NODE_ENV == 'production'){
-   // api_url = ‘https://production/api/v0’;
    api_url = PRODHOST + API_ROOT;
  }
  return api_url;
