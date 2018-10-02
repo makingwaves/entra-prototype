@@ -23,20 +23,15 @@ componentDidMount = () => {
 }
 
 onClickHandler = (e, id = "du må legge inn id i incidents") => {
-  e.preventDefault();
-  // console.log(this);
-  console.log('log onClickHandler IncidentsContainer', id);
     Axios.get(`http://localhost:5000/incidents/${id}`).then((res) => {
     this.setState({
-      data: res.data,
+      id: res.data,
     });
   });
 }
 
 render() {
-  const { incidents } = this.state;
-  console.log('log in render, IncidentsContainer', this.state.data);
-
+  const { incidents, id } = this.state;
 
   return (
     <Page.Content>
@@ -44,9 +39,7 @@ render() {
       <Grid.Row>
         <CategoryList />
         <FilterableIncidentList onClickHandler={this.onClickHandler} incidents={incidents} />
-        
-        <DetailsContainer data={this.state.data} />
-        
+        <DetailsContainer data={id} />
       </Grid.Row>
     </Page.Content>
   );

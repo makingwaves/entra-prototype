@@ -29,8 +29,8 @@ export default class Incident extends Component {
     } = incident;
 
     return (
-      <List.GroupItem className="incident" key={id} onClick={onClickHandler} action>
-        <a onClick={(e) => onClickHandler(e, id)}>
+      <div onClick={(e) => onClickHandler(e, id)}>
+        <List.GroupItem className="incident" key={id} action>
           <div>
             Sensor:
             {sensorName}
@@ -51,8 +51,8 @@ export default class Incident extends Component {
               Poengsum:
             {confidence}
           </div>
-        </a>
-      </List.GroupItem>
+        </List.GroupItem>
+      </div>
     );
   }
 }

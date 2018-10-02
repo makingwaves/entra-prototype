@@ -15,8 +15,8 @@ import 'tabler-react/dist/Tabler.css';
 
 export default class App extends Component {
   componentDidMount = () => {
-    Axios.get('http://entraml.northeurope.cloudapp.azure.com:8080/linechart?from=2017-10-01&to=2017-10-02&unit_id=27244').then((res) => {
-      console.log('ext api res', res.data);
+    Axios.get('http://entraml.northeurope.cloudapp.azure.com/api/linechart?from=2017-10-01&to=2017-10-02&unit_id=27244').then((res) => {
+      console.log('ext api res', res);
     });
   }
 
