@@ -18,8 +18,8 @@ export default class DetailsContainer extends Component {
   };
 
   componentDidMount = () => {
-    Axios.get(`${url}/linechart?from=2017-10-01&to=2017-10-02&unit_id=27244`).then((res) => {
-      console.log('api', res.data);
+    Axios.get(`${url}/linechart?from=2018-01-14&to=2018-01-31&unit_id=27244`).then((res) => {
+      console.log('API Details', res.data);
     });
   };
 
@@ -29,16 +29,16 @@ export default class DetailsContainer extends Component {
     const incident = data ? (
       <Card className="incident-detail">
         <Card.Header className="incident-detail-header">
-          <Card.Title>{data.sensorName}</Card.Title>
+          <Card.Title>{data.unit_id}</Card.Title>
           <Card.Options>
           <Button color="primary" size="sm">
-          {data.sensorBuilding}
+          {data.interval}
           </Button>
           </Card.Options>
           </Card.Header>
           <Card.Body>
           <Details data={data}/>
-          <Chart />
+          <Chart data={data} />
         </Card.Body>
         <Card.Footer>Standard tekst</Card.Footer>
       </Card>

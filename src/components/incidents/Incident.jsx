@@ -25,15 +25,15 @@ export default class Incident extends Component {
   render() {
     const { incident, onClickHandler } = this.props;
     const {
-      id, sensorName, sensorCategory, sensorBuilding, date, confidence,
+      unit_id, unit_name, sensorCategory, sensorBuilding, datestring, anomaly_score,
     } = incident;
 
     return (
-      <div onClick={(e) => onClickHandler(e, id)}>
-        <List.GroupItem className="incident" key={id} action>
+      <div onClick={(e) => onClickHandler(e, unit_id)}>
+        <List.GroupItem className="incident" key={unit_id} action>
           <Form.StaticText>
             Sensor:
-            {sensorName}
+            {unit_name}
           </Form.StaticText>
           <Form.StaticText>Anlegg:</Form.StaticText>
           <Form.StaticText>
@@ -46,11 +46,11 @@ export default class Incident extends Component {
           </Form.StaticText>
           <Form.StaticText>
               Dato:
-            {date}
+            {datestring}
           </Form.StaticText>
           <Form.StaticText>
               Poengsum:
-            {confidence}
+            {Math.floor(100 * anomaly_score)}
           </Form.StaticText>
         </List.GroupItem>
       </div>

@@ -17,16 +17,17 @@ export default class IncidentsContainer extends Component {
   };
 
 componentDidMount = () => {
-  Axios.get(`${url}/incidents`).then((res) => {
+  Axios.get(`${url}/notifications`).then((res) => {
     this.setState({
       incidents: res.data,
     });
   });
 }
 
-onClickHandler = (e, id = "du må legge inn id i incidents") => {
-    Axios.get(`${url}/incidents/${id}`).then((res) => {
-    this.setState({
+onClickHandler = (e, unit_id) => {
+    Axios.get(`${url}/linechart?unit_id=${unit_id}&from=2018-01-14&2018-01-31`).then((res) => {
+      console.log("API id", res.data);
+      this.setState({
       id: res.data,
     });
   });

@@ -22,11 +22,11 @@ export default class IncidentList extends Component {
   render() {
     const { incidents, searchTerm, onClickHandler } = this.props;
 
-    const incident = incidents.map((i) => {
-      if (i.sensorName.toLowerCase().indexOf(searchTerm.toLowerCase()) === -1) {
+    const incident = incidents.map((i, index) => {
+      if (i.unit_name.toLowerCase().indexOf(searchTerm.toLowerCase()) === -1) {
         return null;
       }
-      return <Incident incident={i} key={i.sensorName} onClickHandler={onClickHandler} />;
+      return <Incident incident={i} key={i.unit_id + index} onClickHandler={onClickHandler} />;
     });
     return <List.Group className="incident-list">{incident}</List.Group>;
   }

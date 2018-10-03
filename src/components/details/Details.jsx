@@ -16,8 +16,6 @@ export default class Details extends Component {
 
   render() {
     const { data } = this.props
-    console.table(data);
-
 
     return (
       <Table className="details">
