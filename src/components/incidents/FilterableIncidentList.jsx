@@ -36,7 +36,7 @@ export default class FilterableIncidentList extends Component {
         <IncidentList
           incidents={incidents}
           searchTerm={searchTerm}
-          onClickHandler={this.props.onClickHandler}
+          onClickHandler={onClickHandler}
         />
       </Grid.Col>
     );

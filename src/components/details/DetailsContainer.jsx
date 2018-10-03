@@ -6,22 +6,13 @@ import Axios from 'axios';
 import Details from './Details';
 
 export default class DetailsContainer extends Component {
-  constructor(props) {
-    super(props);
-    //this.state = props;
-  }
-  // static propTypes = {
-  //   incident: objectOf(any),
-  // };
+  static propTypes = {
+    data: objectOf(any),
+  };
 
-  // static defaultProps = {
-  //   incident: null,
-  // };
-
-  // state = {
-  //   incident: null,
-  // };
-
+  static defaultProps = {
+    data: null,
+  };
 
   componentDidMount = () => {
     Axios.get('http://entraml.northeurope.cloudapp.azure.com/linechart?from=2017-10-01&to=2017-10-02&unit_id=27244').then((res) => {
