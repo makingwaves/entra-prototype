@@ -31,7 +31,7 @@ export default class FilterableIncidentList extends Component {
     const { searchTerm } = this.state;
 
     return (
-      <Grid.Col width={4}>
+      <Grid.Col width={3}>
         <SearchBar searchTerm={searchTerm} onSearchTermChange={this.handleSearchTermChange} />
         <IncidentList
           incidents={incidents}

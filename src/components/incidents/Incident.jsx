@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   objectOf, func, any,
 } from 'prop-types';
-import { List } from 'tabler-react';
+import { List, Form } from 'tabler-react';
 
 const propTypes = {
   incident: objectOf(any),
@@ -31,27 +31,27 @@ export default class Incident extends Component {
     return (
       <div onClick={(e) => onClickHandler(e, id)}>
         <List.GroupItem className="incident" key={id} action>
-          <div>
+          <Form.StaticText>
             Sensor:
             {sensorName}
-          </div>
-          <div>Anlegg:</div>
-          <div>
+          </Form.StaticText>
+          <Form.StaticText>Anlegg:</Form.StaticText>
+          <Form.StaticText>
               Kategori:
             {sensorCategory}
-          </div>
-          <div>
+          </Form.StaticText>
+          <Form.StaticText>
               Bygg:
             {sensorBuilding}
-          </div>
-          <div>
+          </Form.StaticText>
+          <Form.StaticText>
               Dato:
             {date}
-          </div>
-          <div>
+          </Form.StaticText>
+          <Form.StaticText>
               Poengsum:
             {confidence}
-          </div>
+          </Form.StaticText>
         </List.GroupItem>
       </div>
     );

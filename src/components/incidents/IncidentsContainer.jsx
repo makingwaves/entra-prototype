@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Axios from 'axios';
 import { Grid, Page } from 'tabler-react';
-
+// API
+import { url } from '../../constants/apiConstants';
 // Components
 import FilterableIncidentList from './FilterableIncidentList';
 import CategoryList from './CategoryList';
 import DetailsContainer from '../details/DetailsContainer';
 
-import { url } from '../../constants/apiConstants';
 
 export default class IncidentsContainer extends Component {
   state = {

@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { objectOf, any } from 'prop-types';
-import { Grid, Card } from 'tabler-react';
+import { Grid, Card, Button, Alert } from 'tabler-react';
 import Axios from 'axios';
+// API
+import { url } from '../../constants/apiConstants';
 // Components
 import Details from './Details';
+import Chart from './Chart';
 
 export default class DetailsContainer extends Component {
   static propTypes = {
@@ -15,7 +18,7 @@ export default class DetailsContainer extends Component {
   };
 
   componentDidMount = () => {
-    Axios.get('http://entraml.northeurope.cloudapp.azure.com/linechart?from=2017-10-01&to=2017-10-02&unit_id=27244').then((res) => {
+    Axios.get(`${url}/linechart?from=2017-10-01&to=2017-10-02&unit_id=27244`).then((res) => {
       console.log('api', res.data);
     });
   };
@@ -24,20 +27,33 @@ export default class DetailsContainer extends Component {
     const { data } = this.props
 
     const incident = data ? (
-      <div className="indident-detail">
-        <Card.Header>
+      <Card className="incident-detail">
+        <Card.Header className="incident-detail-header">
           <Card.Title>{data.sensorName}</Card.Title>
-        </Card.Header>
-        <Card.Body>
-          <Details />
+          <Card.Options>
+          <Button color="primary" size="sm">
+          {data.sensorBuilding}
+          </Button>
+          </Card.Options>
+          </Card.Header>
+          <Card.Body>
+          <Details data={data}/>
+          <Chart />
         </Card.Body>
-      </div>
+        <Card.Footer>Standard tekst</Card.Footer>
+      </Card>
     ) : (
-      <div className="text-muted">Ingen hendelse valgt</div>
+      <Card>
+        <Card.Body>
+          <Alert icon="bell" className="text-muted">
+            Ingen hendelse valgt
+          </Alert>
+        </Card.Body>
+      </Card>
     );
 
     return (
-      <Grid.Col className="card" width={6}>
+      <Grid.Col width={7}>
         {incident}
       </Grid.Col>
     );

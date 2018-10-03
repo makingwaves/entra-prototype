@@ -1,39 +1,35 @@
 import React, { Component } from 'react';
-import { XYFrame } from 'semiotic';
+import { ResponsiveXYFrame } from 'semiotic';
 import { curveCardinal } from 'd3-shape';
 
 export default class Chart extends Component {
   render() {
     return (
-      <div>
-        <XYFrame
-          title="Two Movies"
-          size={[400, 700]}
-          lines={movies}
-          xAccessor="week"
-          yAccessor="grossWeekly"
-          lineStyle={{ stroke: '#00a2ce' }}
-          lineType={{ type: 'line', interpolator: curveCardinal }}
-          lineRenderMode="sketchy"
-          showLinePoints
-          pointStyle={{ fill: '#00a2ce' }}
-          hoverAnnotation
-          margin={{
-            left: 80,
-            bottom: 50,
-            right: 10,
-            top: 40,
-          }}
-          axes={[
-            {
-              orient: 'left',
-            },
-            {
-              orient: 'bottom',
-            },
-          ]}
-        />
-      </div>
+          <ResponsiveXYFrame
+            lines={movies}
+            xAccessor="week"
+            yAccessor="grossWeekly"
+            lineStyle={{ stroke: '#00a2ce' }}
+            lineType={{ type: 'line', interpolator: curveCardinal }}
+            lineRenderMode="sketchy"
+            showLinePoints
+            pointStyle={{ fill: '#00a2ce' }}
+            hoverAnnotation
+            margin={{
+              left: 100,
+              bottom: 50,
+              right: 10,
+              top: 40,
+            }}
+            axes={[
+              {
+                orient: 'left',
+              },
+              {
+                orient: 'bottom',
+              },
+            ]}
+          />
     );
   }
 }

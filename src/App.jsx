@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Page } from 'tabler-react';
+import { Page, Site } from 'tabler-react';
 import Axios from 'axios';
-
+// API
+import { url } from './constants/apiConstants';
 // Components
 import Header from './components/header/Header';
 import NavBar from './components/navigation/NavBar';
 import Incidents from './components/incidents/IncidentsContainer';
 import Dashboard from './components/dashboard/Dashboard';
-
 // CSS
 import './App.scss';
 import 'tabler-react/dist/Tabler.css';
 
-import { url } from './constants/apiConstants';
 
 export default class App extends Component {
   componentDidMount = () => {
