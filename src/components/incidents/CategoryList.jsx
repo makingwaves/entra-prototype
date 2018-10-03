@@ -31,6 +31,20 @@ export default class CategoryList extends Component {
             Spjeld
           </List.GroupItem>
         </List.Group>
+        <List.Group transparent>
+          <List.GroupItem action active icon="inbox">
+            Arkiv
+          </List.GroupItem>
+          <List.GroupItem action icon="alert-circle">
+            Todo
+          </List.GroupItem>
+          <List.GroupItem action icon="tag">
+            Avventer
+          </List.GroupItem>
+          <List.GroupItem action icon="tag">
+            Planlagt
+          </List.GroupItem>
+        </List.Group>
       </Grid.Col>
     );
   }

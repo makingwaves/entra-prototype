@@ -35,6 +35,7 @@ export default class Incident extends Component {
             Sensor:
             {sensorName}
           </div>
+          <div>Anlegg:</div>
           <div>
               Kategori:
             {sensorCategory}

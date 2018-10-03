@@ -8,6 +8,8 @@ import FilterableIncidentList from './FilterableIncidentList';
 import CategoryList from './CategoryList';
 import DetailsContainer from '../details/DetailsContainer';
 
+import { url } from '../../constants/apiConstants';
+
 export default class IncidentsContainer extends Component {
   state = {
     incidents: [],
@@ -15,7 +17,7 @@ export default class IncidentsContainer extends Component {
   };
 
 componentDidMount = () => {
-  Axios.get('http://localhost:5000/incidents').then((res) => {
+  Axios.get(`${url}/incidents`).then((res) => {
     this.setState({
       incidents: res.data,
     });
@@ -23,7 +25,7 @@ componentDidMount = () => {
 }
 
 onClickHandler = (e, id = "du må legge inn id i incidents") => {
-    Axios.get(`http://localhost:5000/incidents/${id}`).then((res) => {
+    Axios.get(`${url}/incidents/${id}`).then((res) => {
     this.setState({
       id: res.data,
     });

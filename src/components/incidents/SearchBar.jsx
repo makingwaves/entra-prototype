@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { string, func } from 'prop-types';
-import { Form } from 'tabler-react';
+import { Form, Dropdown } from 'tabler-react';
 
 const propTypes = {
   searchTerm: string,
@@ -28,6 +28,20 @@ export default class SearchBar extends Component {
           placeholder="Søk..."
           value={searchTerm}
           onChange={this.handleSearchTermChange}
+        />
+        <Dropdown
+          className="dropdown"
+          triggerContent="Sorter liste"
+          itemsObject={[
+            {
+              value: "Sensor",
+            },
+            { isDivider: true },
+            { value: "Anlegg" },
+            { value: "Bygg" },
+            { value: "Dato" },
+            { value: "Poengsum" },
+          ]}
         />
       </Form.Group>
     );
