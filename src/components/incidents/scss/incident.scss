@@ -1,0 +1,49 @@
+$purple: #364261;
+$green: #009B73;
+$light-purple: #586F99;
+$light-blue: #b3d4fc;
+$yellow: #F6A319;
+
+.incident .list-group-item{
+    padding: 10px;
+}
+
+.incident{
+    margin: 0 0 10px 0;
+    font-size: 12px;
+        p, h4{
+            margin: 0;
+        }
+}
+.top-section{
+    border-bottom: 1px solid $green;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.incident-unit-name{
+    font-weight: bold;
+    color: $purple;
+    border-bottom: 1px solid $yellow;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.incident-building{
+    font-weight: bold;
+}
+
+.bottom-section{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.incident-date{
+    width: 50%;
+    font-weight: bold;
+}
+
+.incident-score{
+    text-align: right;
+    width: 50%;
+}

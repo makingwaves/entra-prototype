@@ -5,6 +5,8 @@ import {
 import { List } from 'tabler-react';
 // Components
 import Incident from './Incident';
+// Style
+import './scss/incident-list.css';
 
 const propTypes = {
   incidents: arrayOf(object),

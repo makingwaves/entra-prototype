@@ -3,6 +3,8 @@ import {
   objectOf, func, any,
 } from 'prop-types';
 import { List, Form } from 'tabler-react';
+// Style
+import './scss/incident.css';
 
 const propTypes = {
   incident: objectOf(any),
@@ -29,29 +31,30 @@ export default class Incident extends Component {
     } = incident;
 
     return (
-      <div onClick={(e) => onClickHandler(e, unit_id)}>
-        <List.GroupItem className="incident" key={unit_id} action>
-          <Form.StaticText>
-            Sensor:
-            {unit_name}
-          </Form.StaticText>
-          <Form.StaticText>Anlegg:</Form.StaticText>
-          <Form.StaticText>
-              Kategori:
-            {sensorCategory}
-          </Form.StaticText>
-          <Form.StaticText>
-              Bygg:
-            {sensorBuilding}
-          </Form.StaticText>
-          <Form.StaticText>
-              Dato:
-            {datestring}
-          </Form.StaticText>
-          <Form.StaticText>
-              Poengsum:
-            {Math.floor(100 * anomaly_score)}
-          </Form.StaticText>
+      <div onClick={(e) => onClickHandler(e, unit_id)} className="incident">
+        <List.GroupItem className="incident-group" key={unit_id} action>
+          <div className="top-section">
+            <div className="incident-unit-name">
+             <h4> {unit_name} </h4>
+            </div>
+            <div className="incident-building">
+              Wergelandsgate 15 {sensorBuilding}
+            </div>
+            <div className="incident-anlegg">
+              Anlegg:
+            </div>
+            <div className="incident-category">
+                Kategori: {sensorCategory}
+            </div>
+          </div>
+          <div className="bottom-section">
+            <div className="incident-date">
+                {datestring}
+            </div>
+            <div className="incident-score">
+            Score: {Math.floor(100 * anomaly_score)}
+            </div>
+          </div>
         </List.GroupItem>
       </div>
     );
