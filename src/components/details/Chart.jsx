@@ -4,6 +4,16 @@ import { ResponsiveXYFrame } from 'semiotic';
 import { curveCardinal } from 'd3-shape';
 
 export default class Chart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { resetExtent: [0, 40], selectedExtent: [0, 40] };
+    this.changeExtent = this.changeExtent.bind(this);
+  }
+
+  changeExtent(e) {
+    this.setState({ selectedExtent: [Math.floor(e[0]), Math.ceil(e[1])] });
+  }
+
   static propTypes = {
     data: objectOf(any)
   }
@@ -15,19 +25,21 @@ export default class Chart extends Component {
     return (
           <ResponsiveXYFrame
           lines={data}
+          lineType={{ type: "line", interpolator: curveCardinal }}
           xAccessor={"date"}
           yAccessor={"value"}
-          lineType={{ type: "line", interpolator: curveCardinal }}
-          lineStyles={{ stroke: "#bada55"}}
+          lineStyle={{ stroke: "#007190", strokeWidth: 2 }}
           showLinePoints={true}
           pointStyle={{ fill: "#00a2ce" }}
+          matte={true}
           hoverAnnotation={true}
           axes={[
             {
               orient: "left"
             },
             {
-              orient: "bottom"
+              orient: "bottom",
+              ticks: 6
             }
           ]}
           />
