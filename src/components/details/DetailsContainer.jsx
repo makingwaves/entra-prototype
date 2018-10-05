@@ -29,10 +29,10 @@ export default class DetailsContainer extends Component {
     const incident = data ? (
       <Card className="incident-detail">
         <Card.Header className="incident-detail-header">
-          <Card.Title>{data.unit_id}</Card.Title>
+          <Card.Title>{data.unit_name}</Card.Title>
           <Card.Options>
           <Button color="primary" size="sm">
-          {data.interval}
+          {data.measure_type}
           </Button>
           </Card.Options>
           </Card.Header>

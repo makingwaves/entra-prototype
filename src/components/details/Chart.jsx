@@ -1,47 +1,70 @@
 import React, { Component } from 'react';
 import { objectOf, any } from "prop-types";
-import { ResponsiveXYFrame } from 'semiotic';
+import { MinimapXYFrame } from 'semiotic';
 import { curveCardinal } from 'd3-shape';
 
+// CSS
+import './Details.scss'
 export default class Chart extends Component {
   constructor(props) {
     super(props);
-    this.state = { resetExtent: [0, 40], selectedExtent: [0, 40] };
-    this.changeExtent = this.changeExtent.bind(this);
-  }
-
-  changeExtent(e) {
-    this.setState({ selectedExtent: [Math.floor(e[0]), Math.ceil(e[1])] });
+    this.state = { selectedExtent: [0, 40] };
   }
 
   static propTypes = {
     data: objectOf(any)
   }
 
+  changeExtent = (e) => {
+    this.setState({
+      selectedExtent: [Math.floor(e[0]), Math.ceil(e[1])]
+    });
+  }
+
   render() {
-    const { data } = this.props
-    console.log("Chart data", data.coordinates);
+    const { data } = this.props;
+    const { selectedExtent } = this.state;
+
+    const xyFrameSettings = {
+      lines: data.coordinates,
+      lineType:{ type: "line", interpolator: curveCardinal },
+      xAccessor: "date",
+      yAccessor: "value",
+      lineStyle:{ stroke: "#007190", strokeWidth: 2 },
+      showLinePoints: true,
+      pointStyle:{ fill: "#00a2ce" },
+      hoverAnnotation: true,
+      axes:[
+        {
+          orient: "left"
+        },
+        {
+          orient: "bottom",
+          ticks: 6
+        }
+      ]
+    }
 
     return (
-          <ResponsiveXYFrame
-          lines={data}
-          lineType={{ type: "line", interpolator: curveCardinal }}
-          xAccessor={"date"}
-          yAccessor={"value"}
-          lineStyle={{ stroke: "#007190", strokeWidth: 2 }}
-          showLinePoints={true}
-          pointStyle={{ fill: "#00a2ce" }}
-          matte={true}
-          hoverAnnotation={true}
-          axes={[
-            {
-              orient: "left"
-            },
-            {
-              orient: "bottom",
-              ticks: 6
-            }
-          ]}
+          <MinimapXYFrame
+          size={[600, 600]}
+          {...xyFrameSettings}
+          tooltipContent={d => (
+            <div className="tooltip-content">
+              <p>{Math.floor(data.avg)} {data.display_name_short}</p>
+              <p></p>
+            </div>
+          )}
+          // xExtent={selectedExtent}
+          // matte={true}
+          margin={{ left: 50, top: 10, bottom: 50, right: 20 }}
+          minimap={{
+            margin:{ left: 50, top: 10, bottom: 50, right: 20 },
+            // brushEnd: brushFunction,
+            yBrushable: false,
+            // xBrushExtent: extent,
+            size: [600, 150]
+          }}
           />
     );
   }
