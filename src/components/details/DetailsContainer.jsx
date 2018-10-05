@@ -49,12 +49,21 @@ export default class DetailsContainer extends Component {
       let newData = this.props.data.coordinates.map(d => {
         return d
       });
+
       console.log("newData", newData);
+      // console.log("xMin", xMin);
+      // console.log("xMax", xMax);
 
-      this.setState({ filteredData: newData.filter(n => {
-        console.log("setState");
-          return n.date >= xMin && n.data <= xMax
 
+      // let foo = newData.filter((n)=> {
+      //   console.log('log i filterdata', n.doc_count);   
+      //   return n.date >= xMin && n.date <= xMax
+      //   // return n.doc_count == 288
+      // })
+      // console.log('log array foo', foo);
+      this.setState({ 
+        filteredData: newData.filter(n => {
+          return n.date >= xMin && n.date <= xMax
         })
       })
     }
@@ -78,7 +87,7 @@ export default class DetailsContainer extends Component {
           </Card.Header>
           <Card.Body>
           <Details data={data}/>
-          <Chart brushFunction={this.chartBrush} data={data} />
+          <Chart brushFunction={this.chartBrush} data={filteredData.length === 0 ? data : filteredData} foo={filteredData.length === 0} />
         </Card.Body>
         <Card.Footer>Standard tekst</Card.Footer>
       </Card>

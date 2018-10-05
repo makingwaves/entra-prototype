@@ -17,14 +17,14 @@ export default class Chart extends Component {
   }
 
   render() {
-    const { data, brushFunction } = this.props;
+    const { data, brushFunction, foo } = this.props;
     const { selectedExtent } = this.state;
 
     const xyFrameSettings = {
-      lines: data.coordinates,
+      lines: foo ? data.coordinates : data,
       lineType:{ type: "line", interpolator: curveCardinal },
       xAccessor: "date",
-      yAccessor: "value",
+      yAccessor: "actual_value",
       lineStyle:{ stroke: "#007190", strokeWidth: 2 },
       showLinePoints: true,
       pointStyle:{ fill: "#00a2ce" },
