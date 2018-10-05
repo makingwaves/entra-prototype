@@ -49,21 +49,9 @@ export default class DetailsContainer extends Component {
       let newData = this.props.data.coordinates.map(d => {
         return d
       });
-
-      console.log("newData", newData);
-      // console.log("xMin", xMin);
-      // console.log("xMax", xMax);
-
-
-      // let foo = newData.filter((n)=> {
-      //   console.log('log i filterdata', n.doc_count);   
-      //   return n.date >= xMin && n.date <= xMax
-      //   // return n.doc_count == 288
-      // })
-      // console.log('log array foo', foo);
-      this.setState({ 
+      this.setState({
         filteredData: newData.filter(n => {
-          return n.date >= xMin && n.date <= xMax
+          return +n.date >= xMin && +n.date <= xMax
         })
       })
     }
