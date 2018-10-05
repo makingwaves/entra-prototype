@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { objectOf, any } from "prop-types";
+import { objectOf, any, func } from "prop-types";
 import { MinimapXYFrame } from 'semiotic';
 import { curveCardinal } from 'd3-shape';
 
@@ -12,17 +12,12 @@ export default class Chart extends Component {
   }
 
   static propTypes = {
-    data: objectOf(any)
-  }
-
-  changeExtent = (e) => {
-    this.setState({
-      selectedExtent: [Math.floor(e[0]), Math.ceil(e[1])]
-    });
+    data: objectOf(any),
+    brushFunction: func
   }
 
   render() {
-    const { data } = this.props;
+    const { data, brushFunction } = this.props;
     const { selectedExtent } = this.state;
 
     const xyFrameSettings = {
@@ -36,7 +31,8 @@ export default class Chart extends Component {
       hoverAnnotation: true,
       axes:[
         {
-          orient: "left"
+          orient: "left",
+          baseline: false
         },
         {
           orient: "bottom",
@@ -55,14 +51,25 @@ export default class Chart extends Component {
               <p></p>
             </div>
           )}
-          // xExtent={selectedExtent}
+          xExtent={[undefined, undefined]}
+          yExtent={[undefined, undefined]}
           // matte={true}
           margin={{ left: 50, top: 10, bottom: 50, right: 20 }}
           minimap={{
             margin:{ left: 50, top: 10, bottom: 50, right: 20 },
-            // brushEnd: brushFunction,
-            yBrushable: false,
+            ...xyFrameSettings,
+            showLinePoints: false,
+            brushEnd: brushFunction,
             // xBrushExtent: extent,
+            yBrushable: false,
+            axes:[
+              {
+                baseline: false
+              },
+              {
+                baseline: false
+              }
+            ],
             size: [600, 150]
           }}
           />
