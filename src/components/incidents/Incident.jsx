@@ -27,7 +27,7 @@ export default class Incident extends Component {
   render() {
     const { incident, onClickHandler } = this.props;
     const {
-      unit_id, unit_name, sensorCategory, sensorBuilding, datestring, anomaly_score,
+      unit_id, unit_name, sensorCategory, sensorBuilding, utc_date_time, anomaly_score,
     } = incident;
 
     return (

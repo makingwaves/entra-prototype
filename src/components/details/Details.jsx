@@ -13,7 +13,6 @@ export default class Details extends Component {
     data: null,
   };
 
-
   render() {
     const { data } = this.props
 
@@ -31,7 +30,7 @@ export default class Details extends Component {
           <Table.Row>
             <Table.Col key="0">{data.date}</Table.Col>
             <Table.Col key="1">anlegg kommer</Table.Col>
-            <Table.Col key="2">{data.sensorCategory}</Table.Col>
+            <Table.Col key="2">{Math.floor(data.avg)}</Table.Col>
             <Table.Col key="3">{data.confidence}</Table.Col>
           </Table.Row>
         </Table.Body>
