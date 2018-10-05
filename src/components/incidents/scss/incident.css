@@ -1,0 +1,35 @@
+.incident .list-group-item {
+  padding: 10px; }
+
+.incident {
+  margin: 0 0 10px 0;
+  font-size: 12px; }
+  .incident p, .incident h4 {
+    margin: 0; }
+
+.top-section {
+  border-bottom: 1px solid #009B73;
+  padding-bottom: 5px;
+  margin-bottom: 5px; }
+
+.incident-unit-name {
+  font-weight: bold;
+  color: #364261;
+  border-bottom: 1px solid #F6A319;
+  padding-bottom: 5px;
+  margin-bottom: 5px; }
+
+.incident-building {
+  font-weight: bold; }
+
+.bottom-section {
+  display: flex;
+  flex-wrap: wrap; }
+
+.incident-date {
+  width: 50%;
+  font-weight: bold; }
+
+.incident-score {
+  text-align: right;
+  width: 50%; }
