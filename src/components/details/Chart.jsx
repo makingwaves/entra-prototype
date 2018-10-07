@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { objectOf, any, func } from "prop-types";
+import { objectOf, arrayOf, any, func } from "prop-types";
 import { MinimapXYFrame } from 'semiotic';
 import { curveCardinal } from 'd3-shape';
 
@@ -7,15 +7,16 @@ import { curveCardinal } from 'd3-shape';
 import './Details.scss'
 export default class Chart extends Component {
   static propTypes = {
-    data: objectOf(any),
+    data: arrayOf(any),
+    fullData: objectOf(any),
     brushFunction: func,
   }
 
   render() {
-    const { data, brushFunction, foo } = this.props;
+    const { data, fullData, brushFunction } = this.props;
 
     const xyFrameSettings = {
-      lines: foo ? data.coordinates : data,
+      lines: data ? data : fullData,
       lineType:{ type: "line", interpolator: curveCardinal },
       xAccessor: "date",
       yAccessor: "actual_value",
@@ -30,6 +31,7 @@ export default class Chart extends Component {
         },
         {
           orient: "bottom",
+          baseline: false,
           ticks: 6
         }
       ]
@@ -45,13 +47,14 @@ export default class Chart extends Component {
               <p></p>
             </div>
           )}
-          xExtent={[undefined, undefined]}
-          yExtent={[undefined, undefined]}
           // matte={true}
+          label= { date => <text transform="rotate(45deg)">{date}</text>}
           margin={{ left: 50, top: 10, bottom: 50, right: 20 }}
+          // renderKey={data => data.date}
           minimap={{
             margin:{ left: 50, top: 10, bottom: 50, right: 20 },
             ...xyFrameSettings,
+            lines: fullData,
             showLinePoints: false,
             brushEnd: brushFunction,
             // xBrushExtent: extent,

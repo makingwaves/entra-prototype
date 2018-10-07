@@ -27,11 +27,6 @@ export default class DetailsContainer extends Component {
   static defaultProps = {
     data: null,
   };
-  // componentDidMount = () => {
-  //   Axios.get(`${url}/linechart?from=2018-01-14&to=2018-01-31&unit_id=27244`).then((res) => {
-  //     console.log('API Details', res.data);
-  //   });
-  // };
 
   changeFilters = (newFilter) => {
     const { filters } = this.state;
@@ -39,14 +34,21 @@ export default class DetailsContainer extends Component {
   }
 
   chartBrush = (e) => {
+    if (e === null) {
+      this.changeFilters({ dateRange: [ -Infinity, Infinity ]});
+      this.setState({
+        filteredData: []
+      });
+      return
+    }
     const bbox = e
     const [x1, x2] = bbox
-    console.log(x1, x2);
     if(!isNaN(x1)) {
       const xMin = Math.min(x1, x2);
       const xMax = Math.max(x1, x2);
       this.changeFilters({ dateRange: [ xMin, xMax ]});
-      let newData = this.props.data.coordinates.map(d => {
+      const { data } = this.props;
+      let newData = data.coordinates.map(d => {
         return d
       });
       this.setState({
@@ -61,7 +63,8 @@ export default class DetailsContainer extends Component {
     const { data } = this.props;
     const { filteredData, filters } = this.state;
 
-    console.log("filteredData", filteredData);
+    console.log("container data", data);
+    console.log("container filteredData", filteredData);
 
     const incident = data ? (
       <Card className="incident-detail">
@@ -75,7 +78,7 @@ export default class DetailsContainer extends Component {
           </Card.Header>
           <Card.Body>
           <Details data={data}/>
-          <Chart brushFunction={this.chartBrush} data={filteredData.length === 0 ? data : filteredData} foo={filteredData.length === 0} />
+          <Chart brushFunction={this.chartBrush} data={filteredData.length > 0 ? filteredData : data} fullData={data} />
         </Card.Body>
         <Card.Footer>Standard tekst</Card.Footer>
       </Card>

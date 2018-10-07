@@ -49,7 +49,7 @@ export default class Incident extends Component {
           </div>
           <div className="bottom-section">
             <div className="incident-date">
-                {datestring}
+                {utc_date_time}
             </div>
             <div className="incident-score">
             Score: {Math.floor(100 * anomaly_score)}

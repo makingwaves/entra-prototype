@@ -13,7 +13,7 @@ import DetailsContainer from '../details/DetailsContainer';
 export default class IncidentsContainer extends Component {
   state = {
     incidents: [],
-    id: null
+    detailsData: null
   };
 
 componentDidMount = () => {
@@ -28,13 +28,13 @@ onClickHandler = (e, unit_id) => {
     Axios.get(`${url}/linechart?unit_id=${unit_id}&from=2018-01-14&2018-01-31`).then((res) => {
       console.log("API id", res.data);
       this.setState({
-      id: res.data,
+      detailsData: res.data,
     });
   });
 }
 
 render() {
-  const { incidents, id } = this.state;
+  const { incidents, detailsData } = this.state;
 
   return (
     <Page.Content>
@@ -42,7 +42,7 @@ render() {
       <Grid.Row>
         <CategoryList />
         <FilterableIncidentList onClickHandler={this.onClickHandler} incidents={incidents} />
-        <DetailsContainer data={id} />
+        <DetailsContainer data={detailsData} />
       </Grid.Row>
     </Page.Content>
   );
