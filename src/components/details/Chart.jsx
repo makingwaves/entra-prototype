@@ -7,16 +7,16 @@ import { curveCardinal } from 'd3-shape';
 import './Details.scss'
 export default class Chart extends Component {
   static propTypes = {
-    data: arrayOf(any),
-    fullData: objectOf(any),
+    filteredData: arrayOf(any),
+    initialData: objectOf(any),
     brushFunction: func,
   }
 
   render() {
-    const { data, fullData, brushFunction, foo } = this.props;
+    const { allCoordinates, currentCoordinates, data, brushFunction, isDefaultMinimap } = this.props;
 
     const xyFrameSettings = {
-      lines: foo ? data.coordinates : data,
+      lines: currentCoordinates,
       lineType:{ type: "line", interpolator: curveCardinal },
       xAccessor: "date",
       yAccessor: "actual_value",
@@ -50,11 +50,11 @@ export default class Chart extends Component {
           // matte={true}
           label= { d => <text transform="rotate(45d)">{d}</text>}
           margin={{ left: 50, top: 10, bottom: 50, right: 20 }}
-          renderKey={d => d.date}
+          //renderKey={d => d.date}
           minimap={{
             margin:{ left: 50, top: 10, bottom: 50, right: 20 },
             ...xyFrameSettings,
-            lines: fullData,
+            lines: allCoordinates,
             showLinePoints: false,
             brushEnd: brushFunction,
             // xBrushExtent: extent,

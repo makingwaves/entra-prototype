@@ -11,13 +11,16 @@ import Chart from './Chart';
 export default class DetailsContainer extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
-      filteredData: [],
+      currentCoordinates: [],
       filters: {
         dateRange: [-Infinity, Infinity]
       }
     }
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount', this.state.currentCoordinates);
   }
 
   static propTypes = {
@@ -34,10 +37,11 @@ export default class DetailsContainer extends Component {
   }
 
   chartBrush = (e) => {
+
     if (e === null) {
       this.changeFilters({ dateRange: [ -Infinity, Infinity ]});
       this.setState({
-        filteredData: []
+        currentCoordinates: []
       });
       return
     }
@@ -48,23 +52,28 @@ export default class DetailsContainer extends Component {
       const xMax = Math.max(x1, x2);
       this.changeFilters({ dateRange: [ xMin, xMax ]});
       const { data } = this.props;
-      let newData = data.coordinates.map(d => {
+      let newData = this.props.currentCoordinates.map(d => {
         return d
       });
-      this.setState({
-        filteredData: newData.filter(n => {
-          return n.date >= xMin && n.date <= xMax
-        })
-      })
+
+      this.props.updateCurrentCoordinates(newData, xMin, xMax);
+      // this.setState({
+      //   isDefaultMinimap: false,
+      //   currentCoordinates: newData.filter(n => {
+      //     return n.date >= xMin && n.date <= xMax
+      //   })
+      // })
     }
   }
 
   render() {
-    const { data } = this.props;
-    const { filteredData, filters } = this.state;
 
-    console.log("container data", data);
-    console.log("container filteredData", filteredData);
+    const { data } = this.props;
+    const { filters } = this.state;
+    // const { currentCoordinates } = this.props;
+
+    //console.log("container data", data);
+    //console.log("container currentCoordinates", currentCoordinates);
 
     const incident = data ? (
       <Card className="incident-detail">
@@ -78,7 +87,7 @@ export default class DetailsContainer extends Component {
           </Card.Header>
           <Card.Body>
           <Details data={data}/>
-          <Chart brushFunction={this.chartBrush} data={filteredData.length > 0 ? filteredData : data} fullData={data} oo={filteredData.length === 0} />
+          <Chart brushFunction={this.chartBrush} allCoordinates={this.props.allCoordinates} currentCoordinates={this.state.currentCoordinates.length > 0 ? this.state.currentCoordinates : this.props.currentCoordinates} data={data} />
         </Card.Body>
         <Card.Footer>Standard tekst</Card.Footer>
       </Card>
