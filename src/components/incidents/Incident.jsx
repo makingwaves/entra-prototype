@@ -27,7 +27,7 @@ export default class Incident extends Component {
   render() {
     const { incident, onClickHandler } = this.props;
     const {
-      unit_id, unit_name, sensorCategory, sensorBuilding, utc_date_time, anomaly_score,
+      unit_id, unit_name, measure_type, sensorCategory, sensorBuilding, utc_date_time, anomaly_score,
     } = incident;
 
     return (
@@ -38,13 +38,13 @@ export default class Incident extends Component {
              <h4> {unit_name} </h4>
             </div>
             <div className="incident-building">
-              Wergelandsgate 15 {sensorBuilding}
+            Grensesvingen 26
             </div>
             <div className="incident-anlegg">
-              Anlegg:
+              Anlegg: SOS96-NAE4
             </div>
             <div className="incident-category">
-                Kategori: {sensorCategory}
+                Kategori: {measure_type}
             </div>
           </div>
           <div className="bottom-section">
@@ -52,7 +52,7 @@ export default class Incident extends Component {
                 {utc_date_time}
             </div>
             <div className="incident-score">
-            Score: {Math.floor(100 * anomaly_score)}
+            Avvik: {Math.floor(100 * anomaly_score)} %
             </div>
           </div>
         </List.GroupItem>

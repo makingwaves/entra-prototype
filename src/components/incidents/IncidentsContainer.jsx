@@ -29,7 +29,6 @@ componentDidMount = () => {
 
 onClickHandler = (e, unit_id) => {
     Axios.get(`${url}/linechart?unit_id=${unit_id}&from=2018-01-14&2018-01-31`).then((res) => {
-      console.log("API id", res.data);
       this.setState({
         detailsData: res.data,
         allCoordinates: res.data.coordinates,
@@ -39,7 +38,6 @@ onClickHandler = (e, unit_id) => {
 }
 
 updateCurrentCoordinates = (newData, xMin, xMax) => {
-  console.log('log foooooo');
     this.setState({
       currentCoordinates: newData.filter(n => {
         return n.date >= xMin && n.date <= xMax
@@ -56,7 +54,7 @@ render() {
       <Grid.Row>
         <CategoryList />
         <FilterableIncidentList onClickHandler={this.onClickHandler} incidents={incidents} />
-        {this.state.detailsData ? (
+        {detailsData ? (
           <DetailsContainer updateCurrentCoordinates={this.updateCurrentCoordinates} data={detailsData} allCoordinates={allCoordinates} currentCoordinates={currentCoordinates} />
         ) : (
           <div>
@@ -65,7 +63,7 @@ render() {
             </Alert>
           </div>
         )}
-        
+
       </Grid.Row>
     </Page.Content>
   );

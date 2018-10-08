@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { objectOf, any } from 'prop-types';
+import { objectOf, arrayOf, func, any } from 'prop-types';
 import { Grid, Card, Button, Alert } from 'tabler-react';
 import Axios from 'axios';
 // API
@@ -19,12 +19,11 @@ export default class DetailsContainer extends Component {
     }
   }
 
-  componentDidMount() {
-    console.log('componentDidMount', this.state.currentCoordinates);
-  }
-
   static propTypes = {
     data: objectOf(any),
+    currentCoordinates: arrayOf(any),
+    allCoordinates: arrayOf(any),
+    updateCurrentCoordinates: func
   };
 
   static defaultProps = {
@@ -51,14 +50,13 @@ export default class DetailsContainer extends Component {
       const xMin = Math.min(x1, x2);
       const xMax = Math.max(x1, x2);
       this.changeFilters({ dateRange: [ xMin, xMax ]});
-      const { data } = this.props;
-      let newData = this.props.currentCoordinates.map(d => {
+      const { currentCoordinates } = this.props;
+      let newData = currentCoordinates.map(d => {
         return d
       });
 
       this.props.updateCurrentCoordinates(newData, xMin, xMax);
       // this.setState({
-      //   isDefaultMinimap: false,
       //   currentCoordinates: newData.filter(n => {
       //     return n.date >= xMin && n.date <= xMax
       //   })
@@ -68,12 +66,8 @@ export default class DetailsContainer extends Component {
 
   render() {
 
-    const { data } = this.props;
+    const { data, currentCoordinates, allCoordinates } = this.props;
     const { filters } = this.state;
-    // const { currentCoordinates } = this.props;
-
-    //console.log("container data", data);
-    //console.log("container currentCoordinates", currentCoordinates);
 
     const incident = data ? (
       <Card className="incident-detail">
@@ -87,7 +81,7 @@ export default class DetailsContainer extends Component {
           </Card.Header>
           <Card.Body>
           <Details data={data}/>
-          <Chart brushFunction={this.chartBrush} allCoordinates={this.props.allCoordinates} currentCoordinates={this.state.currentCoordinates.length > 0 ? this.state.currentCoordinates : this.props.currentCoordinates} data={data} />
+          <Chart brushFunction={this.chartBrush} allCoordinates={allCoordinates} currentCoordinates={this.state.currentCoordinates.length > 0 ? this.state.currentCoordinates : currentCoordinates} data={data} />
         </Card.Body>
         <Card.Footer>Standard tekst</Card.Footer>
       </Card>
