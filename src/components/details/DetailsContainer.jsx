@@ -53,7 +53,7 @@ export default class DetailsContainer extends Component {
       });
       this.setState({
         filteredData: newData.filter(n => {
-          return +n.date >= xMin && +n.date <= xMax
+          return n.date >= xMin && n.date <= xMax
         })
       })
     }
@@ -78,7 +78,7 @@ export default class DetailsContainer extends Component {
           </Card.Header>
           <Card.Body>
           <Details data={data}/>
-          <Chart brushFunction={this.chartBrush} data={filteredData.length > 0 ? filteredData : data} fullData={data} />
+          <Chart brushFunction={this.chartBrush} data={filteredData.length > 0 ? filteredData : data} fullData={data} oo={filteredData.length === 0} />
         </Card.Body>
         <Card.Footer>Standard tekst</Card.Footer>
       </Card>

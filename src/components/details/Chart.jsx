@@ -13,10 +13,10 @@ export default class Chart extends Component {
   }
 
   render() {
-    const { data, fullData, brushFunction } = this.props;
+    const { data, fullData, brushFunction, foo } = this.props;
 
     const xyFrameSettings = {
-      lines: data ? data : fullData,
+      lines: foo ? data.coordinates : data,
       lineType:{ type: "line", interpolator: curveCardinal },
       xAccessor: "date",
       yAccessor: "actual_value",
@@ -48,9 +48,9 @@ export default class Chart extends Component {
             </div>
           )}
           // matte={true}
-          label= { date => <text transform="rotate(45deg)">{date}</text>}
+          label= { d => <text transform="rotate(45d)">{d}</text>}
           margin={{ left: 50, top: 10, bottom: 50, right: 20 }}
-          // renderKey={data => data.date}
+          renderKey={d => d.date}
           minimap={{
             margin:{ left: 50, top: 10, bottom: 50, right: 20 },
             ...xyFrameSettings,
