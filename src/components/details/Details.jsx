@@ -18,8 +18,6 @@ export default class Details extends Component {
     const { data } = this.props;
     const { coordinates } = data;
 
-    console.log("Details data", coordinates);
-
     return (
       <Table className="details">
         <Table.Header>
