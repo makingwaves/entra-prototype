@@ -75,7 +75,7 @@ export default class DetailsContainer extends Component {
           <Card.Title>{data.unit_name}</Card.Title>
           <Card.Options>
           <Button color="primary" size="sm">
-          {data.measure_type}
+          Grensesvingen 26
           </Button>
           </Card.Options>
           </Card.Header>

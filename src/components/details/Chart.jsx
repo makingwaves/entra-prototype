@@ -14,8 +14,6 @@ export default class Chart extends Component {
   }
 
   render() {
-    console.log(this.props);
-
     const { allCoordinates, currentCoordinates, data, brushFunction } = this.props;
 
     const xyFrameSettings = {
@@ -36,7 +34,7 @@ export default class Chart extends Component {
           orient: "bottom",
           rotate: 45,
           baseline: false,
-          tickFormat: d => moment(d.date).format("DD/MM")
+          tickFormat: d => moment(d.date).format("DD/MM/YYYY")
         }
       ],
     }
@@ -48,19 +46,18 @@ export default class Chart extends Component {
           {...xyFrameSettings}
           tooltipContent={d => (
             <div className="tooltip-content">
-              <p>{moment(d.date).format("DD/MM/YYYY")}</p>
+              <p>{moment(d.date).format("LLL")}</p>
               <p>Verdi: {Math.floor(d.actual_value)} {data.display_name_short}</p>
               <p>Avvik: {Math.floor(d.anomaly_score_abs * 100)} %</p>
             </div>
           )}
           margin={{ left: 50, top: 10, bottom: 50, right: 20 }}
           minimap={{
-            margin:{ left: 50, top: 10, bottom: 50, right: 20 },
+            margin:{ left: 50, top: 10, right: 20 },
             ...xyFrameSettings,
             lines: allCoordinates,
             showLinePoints: false,
             brushEnd: brushFunction,
-            // xBrushExtent: extent,
             yBrushable: false,
             axes:[
               {

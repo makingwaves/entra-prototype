@@ -28,7 +28,7 @@ componentDidMount = () => {
 }
 
 onClickHandler = (e, unit_id) => {
-    Axios.get(`${url}/linechart?unit_id=${unit_id}&from=2018-01-14&2018-01-31`).then((res) => {
+    Axios.get(`${url}/linechart?unit_id=${unit_id}`).then((res) => {
       this.setState({
         detailsData: res.data,
         allCoordinates: res.data.coordinates,

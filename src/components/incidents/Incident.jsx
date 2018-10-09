@@ -6,29 +6,34 @@ import { List, Form } from 'tabler-react';
 // Style
 import './scss/incident.css';
 
-const propTypes = {
-  incident: objectOf(any),
-  onClickHandler: func,
-};
 
-const defaultProps = {
-  incident: {
-    id: null,
-    sensorName: '',
-    sensorCategory: '',
-    sensorBuilding: '',
-    date: '',
-    confidence: '',
-  },
-  onClickHandler: null,
-};
 
 export default class Incident extends Component {
+  static propTypes = {
+    incident: objectOf(any),
+    onClickHandler: func,
+  };
+
+  static defaultProps = {
+    incident: {
+      id: null,
+      sensorName: '',
+      sensorCategory: '',
+      sensorBuilding: '',
+      date: '',
+      confidence: '',
+    },
+    onClickHandler: null,
+  };
+
   render() {
     const { incident, onClickHandler } = this.props;
     const {
-      unit_id, unit_name, measure_type, sensorCategory, sensorBuilding, utc_date_time, anomaly_score,
+      unit_id, unit_name, measure_type, utc_date_time, anomaly_score,
     } = incident;
+
+    console.log("incident", incident);
+
 
     return (
       <div onClick={(e) => onClickHandler(e, unit_id)} className="incident">
@@ -60,6 +65,3 @@ export default class Incident extends Component {
     );
   }
 }
-
-Incident.propTypes = propTypes;
-Incident.defaultProps = defaultProps;
