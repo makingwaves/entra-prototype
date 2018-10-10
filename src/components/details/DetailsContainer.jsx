@@ -23,7 +23,6 @@ export default class DetailsContainer extends Component {
     data: objectOf(any),
     currentCoordinates: arrayOf(any),
     allCoordinates: arrayOf(any),
-    updateCurrentCoordinates: func
   };
 
   static defaultProps = {
@@ -35,32 +34,32 @@ export default class DetailsContainer extends Component {
     this.setState({ filters: { ...filters, ...newFilter}})
   }
 
-  chartBrush = (e) => {
-    if (e === null) {
-      this.changeFilters({ dateRange: [ -Infinity, Infinity ]});
-      this.setState({
-        currentCoordinates: []
-      });
-      return
-    }
-    const bbox = e
-    const [x1, x2] = bbox
-    if(!isNaN(x1)) {
-      const xMin = Math.min(x1, x2);
-      const xMax = Math.max(x1, x2);
-      this.changeFilters({ dateRange: [ xMin, xMax ]});
-      const { currentCoordinates } = this.props;
-      let newData = currentCoordinates.map(d => {
-        return d
-      });
-      this.props.updateCurrentCoordinates(newData, xMin, xMax);
-      // this.setState({
-      //   currentCoordinates: newData.filter(n => {
-      //     return n.date >= xMin && n.date <= xMax
-      //   })
-      // })
-    }
-  }
+  // chartBrush = (e) => {
+  //   if (e === null) {
+  //     this.changeFilters({ dateRange: [ -Infinity, Infinity ]});
+  //     this.setState({
+  //       currentCoordinates: []
+  //     });
+  //     return
+  //   }
+  //   const bbox = e
+  //   const [x1, x2] = bbox
+  //   if(!isNaN(x1)) {
+  //     const xMin = Math.min(x1, x2);
+  //     const xMax = Math.max(x1, x2);
+  //     this.changeFilters({ dateRange: [ xMin, xMax ]});
+  //     const { currentCoordinates } = this.props;
+  //     let newData = currentCoordinates.map(d => {
+  //       return d
+  //     });
+  //     // this.props.updateCurrentCoordinates(newData, xMin, xMax);
+  //     this.setState({
+  //       currentCoordinates: newData.filter(n => {
+  //         return n.date >= xMin && n.date <= xMax
+  //       })
+  //     })
+  //   }
+  // }
 
   render() {
 

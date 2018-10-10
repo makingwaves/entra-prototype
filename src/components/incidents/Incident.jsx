@@ -32,9 +32,6 @@ export default class Incident extends Component {
       unit_id, unit_name, measure_type, utc_date_time, anomaly_score,
     } = incident;
 
-    console.log("incident", incident);
-
-
     return (
       <div onClick={(e) => onClickHandler(e, unit_id)} className="incident">
         <List.GroupItem className="incident-group" key={unit_id} action>
