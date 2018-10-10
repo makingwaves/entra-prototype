@@ -36,7 +36,6 @@ export default class DetailsContainer extends Component {
   }
 
   chartBrush = (e) => {
-
     if (e === null) {
       this.changeFilters({ dateRange: [ -Infinity, Infinity ]});
       this.setState({
@@ -54,13 +53,12 @@ export default class DetailsContainer extends Component {
       let newData = currentCoordinates.map(d => {
         return d
       });
-
-      this.props.updateCurrentCoordinates(newData, xMin, xMax);
-      // this.setState({
-      //   currentCoordinates: newData.filter(n => {
-      //     return n.date >= xMin && n.date <= xMax
-      //   })
-      // })
+      // this.props.updateCurrentCoordinates(newData, xMin, xMax);
+      this.setState({
+        currentCoordinates: newData.filter(n => {
+          return n.date >= xMin && n.date <= xMax
+        })
+      })
     }
   }
 
@@ -83,7 +81,7 @@ export default class DetailsContainer extends Component {
           <Details data={data}/>
           <Chart brushFunction={this.chartBrush} allCoordinates={allCoordinates} currentCoordinates={this.state.currentCoordinates.length > 0 ? this.state.currentCoordinates : currentCoordinates} data={data} />
         </Card.Body>
-        <Card.Footer>Standard tekst</Card.Footer>
+        <Card.Footer>Entra demo</Card.Footer>
       </Card>
     ) : (
       <Card>
