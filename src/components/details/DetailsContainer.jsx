@@ -53,12 +53,12 @@ export default class DetailsContainer extends Component {
       let newData = currentCoordinates.map(d => {
         return d
       });
-      // this.props.updateCurrentCoordinates(newData, xMin, xMax);
-      this.setState({
-        currentCoordinates: newData.filter(n => {
-          return n.date >= xMin && n.date <= xMax
-        })
-      })
+      this.props.updateCurrentCoordinates(newData, xMin, xMax);
+      // this.setState({
+      //   currentCoordinates: newData.filter(n => {
+      //     return n.date >= xMin && n.date <= xMax
+      //   })
+      // })
     }
   }
 

@@ -17,7 +17,7 @@ export default class Chart extends Component {
     const { allCoordinates, currentCoordinates, data, brushFunction } = this.props;
 
     const xyFrameSettings = {
-      lines: currentCoordinates,
+      lines: allCoordinates,
       lineType:{ type: "line", interpolator: curveCardinal },
       xAccessor: "date",
       yAccessor: "actual_value",
