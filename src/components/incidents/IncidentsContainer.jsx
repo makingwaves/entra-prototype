@@ -21,6 +21,7 @@ export default class IncidentsContainer extends Component {
 
 componentDidMount = () => {
   Axios.get(`${url}/notifications`).then((res) => {
+    console.log('res', res);
     this.setState({
       incidents: res.data,
     });
